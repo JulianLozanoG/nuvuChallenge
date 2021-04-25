@@ -28,5 +28,3 @@ These phases were pointing in time with the planning tool Trello, I made a sched
 
 ![img.png](img.png)
 
-
-<img width="531" alt="Captura de Pantalla 2021-04-23 a la(s) 5 19 19 p  m" src="https://user-images.githubusercontent.com/5875030/116009267-2d85d380-a5de-11eb-95ac-ce2931b7c0a6.png">
