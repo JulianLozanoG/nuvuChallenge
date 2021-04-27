@@ -1,5 +1,6 @@
 package lozano.nuvuback.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,13 +19,14 @@ import java.util.List;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CLIENT_ID", updatable = false, nullable = false)
     @JsonProperty("client_id")
     private Integer id;
 
-    @OneToMany(mappedBy = "clientId")
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL)
     @JsonProperty("credit_cards")
+    @JsonManagedReference
     private List<CreditCard> creditCards;
 
     @Column(name = "FIRST_NAME")

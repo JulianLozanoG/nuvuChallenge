@@ -1,5 +1,6 @@
 package lozano.nuvuback.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "CERDIT_CARD")
+@Table(name = "CREDIT_CARD")
 public class CreditCard {
 
     @Id
@@ -19,6 +20,7 @@ public class CreditCard {
 
     @ManyToOne
     @JoinColumn(name = "CLIENT_ID")
+    @JsonBackReference
     private Client clientId;
 
     @Column(name = "CLIENT_NAME")

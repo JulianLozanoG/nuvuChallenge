@@ -1,7 +1,6 @@
 package lozano.nuvuback.controllers;
 
 import io.swagger.annotations.*;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lozano.nuvuback.controllers.domain.ClientResponse;

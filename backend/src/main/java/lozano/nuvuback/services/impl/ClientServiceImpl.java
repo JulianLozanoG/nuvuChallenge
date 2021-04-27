@@ -7,10 +7,13 @@ import lozano.nuvuback.repositories.CreditCardRepository;
 import lozano.nuvuback.services.ClientService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
@@ -25,8 +28,9 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client updateClient(Client client) {
-        clientRepository.save(client);
-        return client;
+        Client clientForUpdate = clientRepository.findById(client.getId()).get();
+        clientRepository.save(clientForUpdate);
+        return clientForUpdate;
     }
 
     @Override

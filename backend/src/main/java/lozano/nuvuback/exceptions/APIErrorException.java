@@ -10,6 +10,10 @@ public class APIErrorException extends RuntimeException{
     private final Throwable cause;
     private final Integer errorCode;
 
+    public APIErrorException(HttpStatus status, String message, Integer errorCode) {
+        this(status, message, null, errorCode);
+    }
+
     public APIErrorException(HttpStatus status, String message) {
         this(status, message, null, null);
     }

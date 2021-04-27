@@ -1,6 +1,5 @@
 package lozano.nuvuback.controllers;
 
-import com.sun.istack.NotNull;
 import io.swagger.annotations.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -13,15 +12,13 @@ import lozano.nuvuback.services.ClientService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static java.util.Objects.isNull;
 import static org.springframework.http.ResponseEntity.ok;
 
 @Api(tags = {"Clients"})
+@CrossOrigin(origins = {"http://localhost:4200"})
 @Validated
 @RestController
 @AllArgsConstructor
@@ -50,9 +47,10 @@ public class ClientGetController {
         return ok(new ClientResponse(client));
     }
 
-    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClientsResponse> getClients(){
 
         return ok(new ClientsResponse(clientService.getClients()));
     }
 }
+

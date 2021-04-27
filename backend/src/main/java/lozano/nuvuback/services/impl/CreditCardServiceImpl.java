@@ -7,10 +7,12 @@ import lozano.nuvuback.repositories.CreditCardRepository;
 import lozano.nuvuback.services.CreditCardService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class CreditCardServiceImpl implements CreditCardService {
 
@@ -22,7 +24,7 @@ public class CreditCardServiceImpl implements CreditCardService {
     }
 
     @Override
-    public List<CreditCard> getCreditCards(Client clientId) {
+    public List<CreditCard> getCreditCards(Integer clientId) {
         List<CreditCard> creditCards = new ArrayList<>();
         creditCardRepository.findAllByClientId(clientId).forEach(creditCards::add);
         return creditCards;
@@ -35,7 +37,8 @@ public class CreditCardServiceImpl implements CreditCardService {
 
     @Override
     public CreditCard updateCreditCard(CreditCard creditCard) {
-        creditCardRepository.save(creditCard);
+        CreditCard cardUpdatable = creditCardRepository.findById(creditCard.getId()).get();
+        creditCardRepository.save(cardUpdatable);
         return creditCard;
     }
 }
