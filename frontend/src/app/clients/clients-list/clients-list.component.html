@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Clients List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Lastname</th>
+        <th>Identification</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of clients | async">
+        <td>{{ client.first_name }}</td>
+        <td>{{ client.lastname }}</td>
+        <td>{{ client.identification }}</td>
+        <td>{{ client.email }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

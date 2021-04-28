@@ -1,0 +1,26 @@
+<h1>Clients</h1>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Lastname</th>
+          <th>Identification</th>
+          <th>Email</th>
+          <th>Credit Cards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td>{{ client.first_name }}</td>
+          <td>{{ client.lastname }}</td>
+          <td>{{ client.identification }}</td>
+          <td>{{ client.email }}</td>
+          <td>....</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
